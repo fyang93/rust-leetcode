@@ -5,10 +5,12 @@ pub fn max_area(height: Vec<i32>) -> i32 {
     let mut water = 0;
 
     while i < j {
-        water = cmp::max(water, cmp::min(height[i], height[j]) * (j - i) as i32);
-        if height[i] < height[j] {
+        let h = cmp::min(height[i], height[j]);
+        water = cmp::max(water, h * (j - i) as i32);
+        while height[i] <= h && i < j {
             i += 1;
-        } else {
+        }
+        while height[j] <= h && i < j {
             j -= 1;
         }
     }
