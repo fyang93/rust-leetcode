@@ -1,0 +1,7 @@
+[package]
+name = "leetcode"
+version = "0.1.0"
+authors = ["fyang93 <norepfy@gmail.com>"]
+edition = "2018"
+
+[dependencies]
