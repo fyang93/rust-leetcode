@@ -9,19 +9,14 @@ pub fn longest_common_prefix(strs: Vec<String>) -> String {
     let mut len = 0;
     let mut iters: Vec<_> = strs.iter().map(|s| s.chars()).collect();
 
-    loop {
-        match iters[0].next() {
-            Some(a) => {
-                for i in 1..n {
-                    match iters[i].next() {
-                        Some(b) if a == b => continue,
-                        _ => return String::from(&strs[0][..len]),
-                    }
-                }
-                len += 1;
+    while let Some(a) = iters[0].next() {
+        for i in 1..n {
+            match iters[i].next() {
+                Some(b) if a == b => continue,
+                _ => return String::from(&strs[0][..len]),
             }
-            _ => break,
         }
+        len += 1;
     }
     String::from(&strs[0][..len])
 }

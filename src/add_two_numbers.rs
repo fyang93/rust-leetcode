@@ -39,15 +39,10 @@ fn list_to_num(list: Option<Box<ListNode>>) -> i32 {
     let mut curr = &mut list;
     let mut num = 0;
     let mut scale = 1;
-    loop {
-        match curr {
-            Some(n) => {
-                num += n.val * scale;
-                curr = &mut n.next;
-                scale *= 10;
-            },
-            None => break,
-        }
+    while let Some(n) = curr {
+        num += n.val * scale;
+        curr = &mut n.next;
+        scale *= 10;
     }
     num
 }
