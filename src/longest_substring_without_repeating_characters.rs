@@ -1,6 +1,4 @@
-use std::io;
 use std::cmp;
-use std::error::Error;
 use std::collections::HashMap;
 
 pub fn length_of_longest_substring(s: String) -> i32 {

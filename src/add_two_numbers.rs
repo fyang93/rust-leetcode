@@ -1,6 +1,3 @@
-use std::io;
-use std::error::Error;
-
 // Definition for singly-linked list.
  #[derive(PartialEq, Eq, Debug)]
  pub struct ListNode {
@@ -79,7 +76,6 @@ pub fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> 
     }
     head.unwrap().next
 }
-
 
 #[cfg(test)]
 mod tests {
