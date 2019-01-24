@@ -9,7 +9,6 @@ pub fn three_sum_closest(nums: Vec<i32>, target: i32) -> i32 {
             let (mut mid, mut right) = (left+1, len-1);
             while mid < right {
                 let diff = nums[left] + nums[mid] + nums[right] - target;
-                println!("diff={}={}+{}+{}-{}", diff, nums[left], nums[mid], nums[right], target);
                 if diff.abs() < min_diff.abs() {
                     min_diff = diff;
                 }

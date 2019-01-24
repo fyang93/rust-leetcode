@@ -2,4 +2,4 @@
 mod listnode;
 
 // the problem to solve
-mod implement_strstr;
+mod divide_two_integers;
