@@ -10,25 +10,19 @@ pub fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> 
     let mut res = 0;
 
     while n1.is_some() || n2.is_some() {
-        if let Some(node) = n1 {
-            res += node.val;
-            n1 = node.next;
-        }
-        if let Some(node) = n2 {
-            res += node.val;
-            n2 = node.next;
-        }
+        n1 = n1.and_then(|node| { res += node.val; node.next });
+        n2 = n2.and_then(|node| { res += node.val; node.next });
 
-        if let Some(n) = curr {
-            n.next.get_or_insert(Box::new(ListNode::new(res % 10)));
-            curr = &mut n.next;
+        if let Some(node) = curr {
+            node.next.get_or_insert(Box::new(ListNode::new(res % 10)));
+            curr = &mut node.next;
         }
         res /= 10;
     }
     if res > 0 {
-        if let Some(n) = curr {
-            n.next.get_or_insert(Box::new(ListNode::new(1)));
-        }
+        curr.as_mut().map(|node| {
+            node.next.get_or_insert(Box::new(ListNode::new(1)));
+        });
     }
     head.unwrap().next
 }

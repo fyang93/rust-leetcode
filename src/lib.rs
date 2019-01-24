@@ -2,4 +2,4 @@
 mod listnode;
 
 // the problem to solve
-mod merge_k_sorted_lists;
+mod implement_strstr;
