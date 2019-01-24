@@ -7,7 +7,7 @@ pub fn str_str(haystack: String, needle: String) -> i32 {
     let mut pre = vec![0; ndl.len()-1];
 
     // 预处理
-    // pre[j] 表示 j 不匹配时应该重新比对的字符索引
+    // pre[j] 表示 j+1 不匹配时应该重新比对的字符索引
     let mut j = 0;
     for i in 1..ndl.len()-1 {
         while j > 0 && ndl[j] != ndl[i] {
