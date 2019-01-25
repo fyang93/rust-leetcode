@@ -9,7 +9,8 @@ pub fn reverse_k_group(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNo
         if let Some(n) = node {
             node = &mut n.next;
         } else {
-            return head; }
+            return head;
+        }
     }
 
     let mut rest = reverse_k_group(node.take(), k);
