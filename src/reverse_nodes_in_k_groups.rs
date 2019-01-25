@@ -16,9 +16,8 @@ pub fn reverse_k_group(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNo
     let mut rest = reverse_k_group(node.take(), k);
     let mut curr = head;
     while let Some(mut n) = curr {
-        let mut next = mem::replace(&mut n.next, rest);
+        curr = mem::replace(&mut n.next, rest);
         rest = Some(n);
-        curr = next;
     }
 
     rest
