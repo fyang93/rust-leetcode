@@ -2,4 +2,4 @@
 mod listnode;
 
 // the problem to solve
-mod trapping_rain_water;
+mod pow_x_n;
