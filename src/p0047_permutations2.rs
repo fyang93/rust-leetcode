@@ -16,10 +16,7 @@ fn dfs(nums: &Vec<i32>, perm: &mut Vec<i32>, used: &mut Vec<bool>, result: &mut 
         result.push(perm.clone())
     } else {
         for i in 0..nums.len() {
-            if used[i] {
-                continue;
-            }
-            if i > 0 && nums[i] == nums[i - 1] && !used[i - 1] { continue; } // 剪枝，避免重复
+            if used[i] || i > 0 && nums[i] == nums[i - 1] && !used[i - 1] { continue; } // 剪枝，避免重复
             used[i] = true;
             perm.push(nums[i]);
             dfs(nums, perm, used, result);
