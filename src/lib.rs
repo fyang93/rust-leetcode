@@ -2,4 +2,4 @@
 mod listnode;
 
 // the problem to solve
-mod p0047_permutations2;
+mod p0049_group_anagrams;
