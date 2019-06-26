@@ -44,10 +44,9 @@ pub fn group_anagrams_fourier(strs: Vec<String>) -> Vec<Vec<String>> {
     let mut hash = HashMap::new();
     for s in strs {
         let mut key = [0i32; 2];
-        for b in s.clone().into_bytes() {
-            let t = &timestamps[(b - b'a') as usize];
-            key[0] += t[0];
-            key[1] += t[1];
+        for i in s.as_bytes().iter().map(|b| (b - b'a') as usize) {
+            key[0] += timestamps[i][0];
+            key[1] += timestamps[i][1];
         }
         hash.entry(key).or_insert(vec![]).push(s);
     }
