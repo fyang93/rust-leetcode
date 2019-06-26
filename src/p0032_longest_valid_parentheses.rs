@@ -1,5 +1,6 @@
-use std::cmp;
+// Tags: DP, Stack, Two-pass
 
+// two-pass
 pub fn longest_valid_parentheses(s: String) -> i32 {
     let (mut left, mut right) = (0, 0);
     let mut longest = 0;
@@ -11,7 +12,7 @@ pub fn longest_valid_parentheses(s: String) -> i32 {
             _ => (),
         }
         if left == right {
-            longest = cmp::max(longest, left + right);
+            longest = longest.max(left + right);
         } else if left < right {
             left = 0;
             right = 0;
@@ -28,7 +29,7 @@ pub fn longest_valid_parentheses(s: String) -> i32 {
             _ => (),
         }
         if left == right {
-            longest = cmp::max(longest, left + right);
+            longest = longest.max(left + right);
         } else if left > right {
             left = 0;
             right = 0;
@@ -40,7 +41,6 @@ pub fn longest_valid_parentheses(s: String) -> i32 {
 
 pub fn longest_valid_parentheses_stack(s: String) -> i32 {
     let chars: Vec<_> = s.chars().collect();
-    // 堆栈的最后一个元素对应前一个最长有效括号列的末尾索引
     let mut stack: Vec<isize> = vec![-1];
     let mut longest = 0;
 
@@ -52,7 +52,7 @@ pub fn longest_valid_parentheses_stack(s: String) -> i32 {
             if stack.is_empty() {
                 stack.push(i as isize);
             } else {
-                longest = cmp::max(longest, i as isize - *stack.last().unwrap());
+                longest = longest.max(i as isize - stack.last().unwrap());
             }
         }
     }
@@ -83,7 +83,7 @@ pub fn longest_valid_parentheses_dp(s: String) -> i32 {
                         };
                 }
             }
-            longest = cmp::max(longest, dp[i]);
+            longest = longest.max(dp[i]);
         }
     }
 

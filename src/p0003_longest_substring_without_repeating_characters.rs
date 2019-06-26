@@ -1,4 +1,4 @@
-use std::cmp;
+// Tags: sliding window
 use std::collections::HashMap;
 
 pub fn length_of_longest_substring(s: String) -> i32 {
@@ -6,10 +6,10 @@ pub fn length_of_longest_substring(s: String) -> i32 {
     let (mut left, mut right) = (0, 1);
     let mut len = 0;
     for c in s.chars() {
-        if let Some(v) = hash.get(&c) {
-            left = cmp::max(left, *v);
+        if let Some(&v) = hash.get(&c) {
+            left = left.max(v);
         }
-        len = cmp::max(len, right - left);
+        len = len.max(right - left);
         hash.insert(c, right);
         right += 1;
     }

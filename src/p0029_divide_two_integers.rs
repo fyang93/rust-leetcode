@@ -6,7 +6,7 @@ pub fn divide(dividend: i32, divisor: i32) -> i32 {
     // dvd >= 2^? * dvs + 2^? * dvs ...
     while dvd >= dvs {
         let mut s = dvs;
-        let mut power = 1;
+          let mut power = 1;
         while (s << 1) <= dvd {
             s <<= 1;
             power <<= 1;

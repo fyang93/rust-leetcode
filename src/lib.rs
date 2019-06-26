@@ -2,4 +2,4 @@
 mod listnode;
 
 // the problem to solve
-mod pow_x_n;
+mod p0047_permutations2;

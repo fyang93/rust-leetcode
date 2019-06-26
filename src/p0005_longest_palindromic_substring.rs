@@ -1,5 +1,3 @@
-use std::cmp;
-
 pub fn longest_palindrome(s: String) -> String {
     let bytes = s.as_bytes();
     let n = bytes.len() as isize;
@@ -7,7 +5,7 @@ pub fn longest_palindrome(s: String) -> String {
     for i in 0..n {
         let len1 = extend(bytes, n, i-1, i+1);
         let len2 = extend(bytes, n, i, i+1);
-        let max = cmp::max(len1, len2);
+        let max = len1.max(len2);
         if len < max {
             len = max;
             start = if len1 > len2 {

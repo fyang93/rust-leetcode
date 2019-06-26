@@ -11,18 +11,18 @@ pub fn my_pow(x: f64, n: i32) -> f64 {
 }
 
 pub fn nearly_equal(a: f64, b: f64) -> bool {
-	let abs_a = a.abs();
-	let abs_b = b.abs();
-	let diff = (a - b).abs();
+    let abs_a = a.abs();
+    let abs_b = b.abs();
+    let diff = (a - b).abs();
 
-	if a == b { // Handle infinities.
-		true
-	} else if a == 0.0 || b == 0.0 || diff < std::f64::MIN_POSITIVE {
-		// One of a or b is zero (or both are extremely close to it,) use absolute error.
-		diff < (std::f64::EPSILON * std::f64::MIN_POSITIVE)
-	} else { // Use relative error.
-		(diff / (abs_a + abs_b).min(std::f64::MAX)) < std::f64::EPSILON
-	}
+    if a == b { // Handle infinities.
+        true
+    } else if a == 0.0 || b == 0.0 || diff < std::f64::MIN_POSITIVE {
+        // One of a or b is zero (or both are extremely close to it,) use absolute error.
+        diff < (std::f64::EPSILON * std::f64::MIN_POSITIVE)
+    } else { // Use relative error.
+        (diff / (abs_a + abs_b).min(std::f64::MAX)) < std::f64::EPSILON
+    }
 }
 
 

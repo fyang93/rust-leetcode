@@ -1,6 +1,3 @@
-use std::cmp;
-
-// 官方解答里面的图很关键
 // 在最高柱左侧的积水由从左向右找到的最高处决定
 // 在最高柱右侧的积水由从右往左找到的最高处决定
 pub fn trap(height: Vec<i32>) -> i32 {
@@ -43,15 +40,13 @@ pub fn trap_dp(height: Vec<i32>) -> i32 {
     let (mut left_max, mut right_max) = (height.clone(), height.clone());
 
     for i in 1..height.len() {
-        left_max[i] = cmp::max(left_max[i - 1], height[i]);
+        left_max[i] = left_max[i - 1].max(height[i]);
     }
-
     for i in (0..height.len() - 1).rev() {
-        right_max[i] = cmp::max(right_max[i + 1], height[i]);
+        right_max[i] = right_max[i + 1].max(height[i]);
     }
-
     for i in 1..height.len() - 1 {
-        ans += cmp::min(left_max[i], right_max[i]) - height[i];
+        ans += left_max[i].min(right_max[i] - height[i]);
     }
 
     ans
@@ -67,7 +62,7 @@ pub fn trap_stack(height: Vec<i32>) -> i32 {
             let top = stack.pop().unwrap();
             if let Some(&j) = stack.last() {
                 let dist = i - j - 1;
-                let bounded_height = cmp::min(height[i], height[j]) - height[top];
+                let bounded_height = height[i].min(height[j]) - height[top];
                 ans += dist as i32 * bounded_height;
             }
         }
