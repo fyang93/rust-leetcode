@@ -1,4 +1,4 @@
-// Tags: DP, Stack, Two-pass
+// Tags: DP, stack, two pass
 
 // two-pass
 pub fn longest_valid_parentheses(s: String) -> i32 {

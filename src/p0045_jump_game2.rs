@@ -1,4 +1,4 @@
-// Tags: Backtracking, DP, Greedy
+// Tags: backtracking, DP, greedy
 
 // greedy
 // 使每两步尽量覆盖更大的范围，给后续的跳跃提供更多选择

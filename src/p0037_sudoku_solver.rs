@@ -2,7 +2,7 @@ pub fn solve_sudoku(board: &mut Vec<Vec<char>>) {
     solve(board);
 }
 
-pub fn solve(board: &mut Vec<Vec<char>>) -> bool {
+fn solve(board: &mut Vec<Vec<char>>) -> bool {
     for i in 0..9 {
         for j in 0..9 {
             if board[i][j] == '.' {

@@ -2,4 +2,4 @@
 mod listnode;
 
 // the problem to solve
-mod p0299_bulls_and_cows;
+mod p0056_merge_intervals;

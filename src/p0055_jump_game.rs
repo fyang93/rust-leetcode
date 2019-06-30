@@ -1,4 +1,4 @@
-// Tags: Backtracking, DP, Greedy
+// Tags: backtracking, DP, greedy
 
 #[derive(Clone, PartialEq, Eq, Debug)]
 pub enum Index {
