@@ -2,4 +2,4 @@
 mod listnode;
 
 // the problem to solve
-mod p0056_merge_intervals;
+mod p0060_permutation_sequence;
