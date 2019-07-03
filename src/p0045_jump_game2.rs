@@ -1,5 +1,3 @@
-// Tags: backtracking, DP, greedy
-
 // greedy
 // 使每两步尽量覆盖更大的范围，给后续的跳跃提供更多选择
 pub fn jump(nums: Vec<i32>) -> i32 {

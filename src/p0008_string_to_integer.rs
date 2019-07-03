@@ -39,7 +39,6 @@ pub fn my_atoi(s: String) -> i32 {
     sign * res
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;

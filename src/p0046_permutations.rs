@@ -1,5 +1,3 @@
-// Tags: DFS, BFS
-
 pub fn permute(nums: Vec<i32>) -> Vec<Vec<i32>> {
     let mut result = vec![];
     let mut perm = vec![];

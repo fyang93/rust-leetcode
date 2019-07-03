@@ -1,5 +1,3 @@
-// Tags: divide and conquer
-
 pub fn max_sub_array(nums: Vec<i32>) -> i32 {
     let mut max = i32::min_value();
     let mut last_max = i32::min_value();

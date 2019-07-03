@@ -1,4 +1,3 @@
-// Tags: LinkedList
 use crate::listnode::*;
 
 pub fn merge_two_lists(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {

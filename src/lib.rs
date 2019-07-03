@@ -2,4 +2,4 @@
 mod listnode;
 
 // the problem to solve
-mod p0061_rotate_list;
+mod p0064_minimum_path_sum;

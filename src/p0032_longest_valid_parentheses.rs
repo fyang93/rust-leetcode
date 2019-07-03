@@ -1,5 +1,3 @@
-// Tags: DP, stack, two pass
-
 // two-pass
 pub fn longest_valid_parentheses(s: String) -> i32 {
     let (mut left, mut right) = (0, 0);

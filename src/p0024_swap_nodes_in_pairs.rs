@@ -1,4 +1,3 @@
-// Tags: LinkedList
 use crate::listnode::*;
 
 pub fn swap_pairs(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {

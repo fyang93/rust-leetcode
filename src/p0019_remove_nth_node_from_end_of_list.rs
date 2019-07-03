@@ -1,4 +1,3 @@
-// Tags: LinkedList
 use crate::listnode::*;
 
 // unsafe 1-pass

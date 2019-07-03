@@ -1,5 +1,3 @@
-// Tags: DFS
-
 pub fn subsets_with_dup(nums: Vec<i32>) -> Vec<Vec<i32>> {
     let mut result = vec![];
     let mut subset = vec![];

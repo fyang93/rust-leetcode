@@ -27,7 +27,6 @@ pub fn divide(dividend: i32, divisor: i32) -> i32 {
     }
 }
 
-
 // log-based
 pub fn divide_2(dividend: i32, divisor: i32) -> i32 {
     if dividend == 0 { return 0; }

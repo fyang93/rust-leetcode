@@ -1,5 +1,3 @@
-// Tags: DFS
-
 // dfs
 pub fn permute_unique_dfs(nums: Vec<i32>) -> Vec<Vec<i32>> {
     let mut result = vec![];
