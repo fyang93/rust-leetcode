@@ -8,7 +8,7 @@ pub fn convert(s: String, num_rows: i32) -> String {
     let mut step = 1;
 
     for c in s.chars() {
-        &rows[row as usize].push(c);
+        rows[row as usize].push(c);
         row += step;
         if row == 0 || row == num_rows - 1 {
             step *= -1;

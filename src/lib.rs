@@ -2,4 +2,4 @@
 mod listnode;
 
 // the problem to solve
-mod p0060_permutation_sequence;
+mod p0061_rotate_list;

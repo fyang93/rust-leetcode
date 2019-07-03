@@ -43,4 +43,3 @@ pub fn list_to_num(list: Option<Box<ListNode>>) -> i32 {
     }
     num
 }
-

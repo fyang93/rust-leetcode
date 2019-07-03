@@ -1,5 +1,5 @@
+// Tags: LinkedList
 use crate::listnode::*;
-use std::mem;
 
 pub fn reverse_k_group(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {
     let mut head = head;
@@ -16,7 +16,7 @@ pub fn reverse_k_group(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNo
     let mut rest = reverse_k_group(node.take(), k);
     let mut curr = head;
     while let Some(mut n) = curr {
-        curr = mem::replace(&mut n.next, rest);
+        curr = std::mem::replace(&mut n.next, rest);
         rest = Some(n);
     }
 

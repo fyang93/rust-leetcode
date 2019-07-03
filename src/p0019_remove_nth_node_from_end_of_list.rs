@@ -1,3 +1,4 @@
+// Tags: LinkedList
 use crate::listnode::*;
 
 // unsafe 1-pass
@@ -24,24 +25,23 @@ pub fn remove_nth_from_end(head: Option<Box<ListNode>>, n: i32) -> Option<Box<Li
 }
 
 // safe 2-pass
-pub fn remove_nth_from_end_1(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
+pub fn remove_nth_from_end_safe(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
     let mut len = 0;
-
     {
-        let mut p = &head;
-        while let Some(node) = p {
+        let mut node = &head;
+        while let Some(n) = node {
             len += 1;
-            p = &node.next;
+            node = &n.next;
         }
     }
 
     let mut head = head;
-    let mut curr = &mut head;
+    let mut node = &mut head;
     for _ in 0..len - n {
-        curr = &mut curr.as_mut().unwrap().next;
+        node = &mut node.as_mut().unwrap().next;
     }
 
-    *curr = curr.as_mut().unwrap().next.take();
+    *node = node.as_mut().unwrap().next.take();
     head
 }
 
@@ -51,9 +51,7 @@ mod tests {
 
     #[test]
     fn it_works() {
-        let list = num_to_list(54321);
-        let res = remove_nth_from_end(list, 2);
-        let ans = list_to_num(res);
-        assert_eq!(ans, 5321);
+        assert_eq!(list_to_num(remove_nth_from_end(num_to_list(54321), 2)), 5321);
+        assert_eq!(list_to_num(remove_nth_from_end_safe(num_to_list(54321), 2)), 5321);
     }
 }

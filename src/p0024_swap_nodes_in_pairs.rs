@@ -1,5 +1,5 @@
+// Tags: LinkedList
 use crate::listnode::*;
-use std::mem;
 
 pub fn swap_pairs(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     let mut head = head;
@@ -9,7 +9,7 @@ pub fn swap_pairs(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     }
 
     let mut rest = swap_pairs(head.as_mut().unwrap().next.as_mut().unwrap().next.take());
-    let mut next = mem::replace(&mut head.as_mut().unwrap().next, rest);
+    let mut next = std::mem::replace(&mut head.as_mut().unwrap().next, rest);
     next.as_mut().unwrap().next = head;
 
     next
