@@ -25,7 +25,6 @@ pub fn nearly_equal(a: f64, b: f64) -> bool {
     }
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;

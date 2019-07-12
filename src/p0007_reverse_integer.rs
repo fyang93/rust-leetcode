@@ -1,7 +1,7 @@
 pub fn reverse(x: i32) -> i32 {
-	let mut x = x;
-	let mut rev: i32 = 0;
-	loop {
+    let mut x = x;
+    let mut rev: i32 = 0;
+    loop {
         let pop = x % 10;
         match rev.checked_mul(10) {
             Some(v) => {
@@ -17,7 +17,7 @@ pub fn reverse(x: i32) -> i32 {
         if x == 0 {
             return rev;
         }
-	}
+    }
     0
 }
 

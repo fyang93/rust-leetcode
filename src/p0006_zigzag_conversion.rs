@@ -18,7 +18,6 @@ pub fn convert(s: String, num_rows: i32) -> String {
     rows.concat()
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;

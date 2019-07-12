@@ -59,7 +59,7 @@ pub fn rotate_right_safe(head: Option<Box<ListNode>>, k: i32) -> Option<Box<List
         while let Some(n) = tail {
             tail = &mut n.next;
         }
-        std::mem::replace(tail, head);
+        tail.get_or_insert(head.unwrap());
         return new_head;
     }
     head

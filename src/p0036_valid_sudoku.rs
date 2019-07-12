@@ -31,7 +31,6 @@ pub fn is_valid_sudoku(board: Vec<Vec<char>>) -> bool {
     true
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;

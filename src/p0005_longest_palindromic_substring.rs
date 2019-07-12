@@ -31,7 +31,6 @@ pub fn extend(bytes: &[u8], n: isize, left: isize, right: isize) -> isize {
     return right - left - 1;
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;

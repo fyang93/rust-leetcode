@@ -72,12 +72,13 @@ pub fn dp_top_down(i: usize, j: usize, s: &[u8], p: &[u8], memo: &mut Vec<Vec<Op
 }
 
 pub fn dp_bottom_up(s: &[u8], p: &[u8]) -> bool {
-    let mut memo = vec![vec![false; p.len() + 1]; s.len() + 1];
+    let (m, n) = (s.len(), p.len());
+    let mut memo = vec![vec![false; n + 1]; m + 1];
     memo[s.len()][p.len()] = true;
 
-    for i in (0..=s.len()).rev() {
+    for i in (0..=m).rev() {
         // j == p.len() && i < s.len() 时 memo[i][j] 必为 false，因此不需要考虑 j = p.len()
-        for j in (0..p.len()).rev() {
+        for j in (0..n).rev() {
             let first_match = i < s.len() && (s[i] == p[j] || p[j] == b'?' || p[j] == b'*');
             match p[j] {
                 b'*' => memo[i][j] = memo[i][j + 1] || (first_match && memo[i + 1][j]),
