@@ -51,7 +51,7 @@ pub fn find_median_sorted_arrays_with_lens(nums1: Vec<i32>, nums2: Vec<i32>, m: 
             return (max_of_left + min_of_right) as f64 / 2.0;
         }
     }
-    panic!("Input correct lists!")
+    unreachable!()
 }
 
 #[cfg(test)]

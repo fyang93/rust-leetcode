@@ -14,6 +14,7 @@ fn dfs(nums: &Vec<i32>, start: usize, subset: &mut Vec<i32>, result: &mut Vec<Ve
     }
 }
 
+// [] => [] [1] => [] [1] [2] [1, 2] => [] [1] [2] [1,2] [3] [1,3] [2,3] [1,2,3]
 pub fn subsets_bfs(nums: Vec<i32>) -> Vec<Vec<i32>> {
     let mut result = vec![vec![]];
 

@@ -10,9 +10,7 @@ pub fn max_sub_array(nums: Vec<i32>) -> i32 {
 
 // divide and conquer
 pub fn max_sub_array_1(nums: Vec<i32>) -> i32 {
-    if nums.is_empty() {
-        panic!("nums should contain at least one number");
-    }
+    assert!(!nums.is_empty());
     sub(&nums, 0, nums.len() - 1)
 }
 
