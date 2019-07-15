@@ -2,4 +2,4 @@
 mod listnode;
 
 // the problem to solve
-mod p0077_combinations;
+mod p0079_word_search;
