@@ -2,4 +2,4 @@
 mod listnode;
 
 // the problem to solve
-mod p0079_word_search;
+mod p0085_maximal_rectangle;

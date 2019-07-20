@@ -1,8 +1,7 @@
 use crate::listnode::*;
 
 // unsafe 1-pass
-pub fn remove_nth_from_end(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
-    let mut head = head;
+pub fn remove_nth_from_end(mut head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
     let mut back: *mut _ = &mut head;
     let mut front: *const _ = &head;
 
@@ -17,7 +16,7 @@ pub fn remove_nth_from_end(head: Option<Box<ListNode>>, n: i32) -> Option<Box<Li
             back = &mut (*back).as_mut().unwrap().next;
             front = &(*front).as_ref().unwrap().next;
         }
-        *back = (*back).as_mut().unwrap().next.take();
+         back = (*back).as_mut().unwrap().next.take();
     }
 
     head
