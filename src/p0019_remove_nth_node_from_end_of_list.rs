@@ -3,20 +3,18 @@ use crate::listnode::*;
 // unsafe 1-pass
 pub fn remove_nth_from_end(mut head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
     let mut back: *mut _ = &mut head;
-    let mut front: *const _ = &head;
+    let mut front = &head;
 
     for _ in 0..n {
-        unsafe {
-            front = &(*front).as_ref().unwrap().next;
-        }
+        front = &front.as_ref().unwrap().next;
     }
 
     unsafe {
         while (*front).is_some() {
             back = &mut (*back).as_mut().unwrap().next;
-            front = &(*front).as_ref().unwrap().next;
+            front = &front.as_ref().unwrap().next;
         }
-         back = (*back).as_mut().unwrap().next.take();
+        *back = (*back).as_mut().unwrap().next.take();
     }
 
     head

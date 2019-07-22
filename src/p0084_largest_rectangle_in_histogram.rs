@@ -35,7 +35,7 @@ mod tests {
     #[test]
     fn it_works() {
         assert_eq!(largest_rectangle_area(vec![0, 0, 0, 0, 0, 0, 0, 0, 2147483647]), 2147483647);
-        assert_eq!(largest_rectangle_area(vec![0,1,0,1]), 1);
+        assert_eq!(largest_rectangle_area(vec![0, 1, 0, 1]), 1);
         assert_eq!(largest_rectangle_area(vec![2, 1, 5, 6, 2, 3]), 10);
         assert_eq!(largest_rectangle_area(vec![2, 2, 2]), 6);
     }
