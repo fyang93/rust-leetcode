@@ -40,7 +40,7 @@ pub fn letter_combinations_1(digits: String) -> Vec<String> {
 
         stride /= nums[i];
         for j in 0..size {
-            &results[j].push(letters[i][j / stride % nums[i]]);
+            results[j].push(letters[i][j / stride % nums[i]]);
         }
     }
     results

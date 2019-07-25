@@ -1,13 +1,11 @@
 use std::collections::HashMap;
-use std::collections::hash_map::Entry;
 
 pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
     let mut hash: HashMap<i32, i32> = HashMap::new();
     for i in 0..nums.len() {
-        let val = nums[i];
-        match hash.entry(val) {
-            Entry::Occupied(_) => return vec![hash.get(&val).unwrap().clone(), i as i32],
-            Entry::Vacant(_) => hash.insert(target - val, i as i32),
+        match hash.get(&nums[i]) {
+            Some(&j) => return vec![j, i as i32],
+            None => hash.insert(target - nums[i], i as i32),
         };
     }
     Vec::new()

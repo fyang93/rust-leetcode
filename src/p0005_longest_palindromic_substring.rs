@@ -3,8 +3,8 @@ pub fn longest_palindrome(s: String) -> String {
     let n = bytes.len() as isize;
     let (mut start, mut len) = (0, 0);
     for i in 0..n {
-        let len1 = extend(bytes, n, i-1, i+1);
-        let len2 = extend(bytes, n, i, i+1);
+        let len1 = extend(bytes, n, i - 1, i + 1);
+        let len2 = extend(bytes, n, i, i + 1);
         let max = len1.max(len2);
         if len < max {
             len = max;
@@ -15,8 +15,7 @@ pub fn longest_palindrome(s: String) -> String {
             };
         }
     }
-    let (start, len) = (start as usize, len as usize);
-    String::from(&s[start..start + len])
+    String::from(&s[start as usize..(start + len) as usize])
 }
 
 pub fn extend(bytes: &[u8], n: isize, left: isize, right: isize) -> isize {
