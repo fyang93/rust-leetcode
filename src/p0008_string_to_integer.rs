@@ -2,9 +2,8 @@ pub fn my_atoi(s: String) -> i32 {
     let mut in_num = false;
     let mut res: i32 = 0;
     let mut sign: i32 = 1;
-    let get_overflow = | sign | if sign == 1 { i32::max_value() } else { i32::min_value() };
+    let get_overflow = |sign| if sign == 1 { i32::max_value() } else { i32::min_value() };
 
-    let c_iter = s.chars();
     for c in s.chars() {
         if !in_num {
             match c {
@@ -23,11 +22,8 @@ pub fn my_atoi(s: String) -> i32 {
         } else {
             match c {
                 '0'...'9' => {
-                    match res.checked_mul(10) {
-                        Some(v) => match v.checked_add(c.to_digit(10).unwrap() as i32) {
-                            Some(x) => res = x,
-                            None => return get_overflow(sign),
-                        }
+                    match res.checked_mul(10).and_then(|x| x.checked_add(c.to_digit(10).unwrap() as i32)) {
+                        Some(x) => res = x,
                         None => return get_overflow(sign),
                     }
                 },
@@ -46,15 +42,7 @@ mod tests {
     #[test]
     fn it_works() {
         assert_eq!(my_atoi(String::from("9223372036854775808")), 2147483647);
-    }
-
-    #[test]
-    fn it_works_1() {
         assert_eq!(my_atoi(String::from("words and 987")), 0);
-    }
-
-    #[test]
-    fn it_works_2() {
         assert_eq!(my_atoi(String::from("-91283472332")), -2147483648);
     }
 }

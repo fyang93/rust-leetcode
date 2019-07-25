@@ -42,7 +42,7 @@ pub fn can_jump_1(nums: Vec<i32>) -> bool {
     can_jump_from_position_1(0, &nums, &mut memo)
 }
 
-pub fn can_jump_from_position_1(position: usize, nums: &Vec<i32>, memo: &mut Vec<Index>) -> bool {
+fn can_jump_from_position_1(position: usize, nums: &Vec<i32>, memo: &mut Vec<Index>) -> bool {
     match memo[position] {
         Index::Good => return true,
         Index::Bad => return false,
@@ -64,7 +64,7 @@ pub fn can_jump_2(nums: Vec<i32>) -> bool {
     can_jump_from_position_2(0, &nums)
 }
 
-pub fn can_jump_from_position_2(position: usize, nums: &Vec<i32>) -> bool {
+fn can_jump_from_position_2(position: usize, nums: &Vec<i32>) -> bool {
     if position + 1 == nums.len() {
         return true;
     }

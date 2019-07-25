@@ -1,24 +1,19 @@
 use crate::listnode::*;
 
-pub fn reverse_k_group(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {
-    let mut head = head;
-
+pub fn reverse_k_group(mut head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {
     let mut node = &mut head;
     for _ in 0..k {
-        if let Some(n) = node {
-            node = &mut n.next;
-        } else {
-            return head;
+        match node {
+            Some(n) => node = &mut n.next,
+            _ => return head,
         }
     }
 
     let mut rest = reverse_k_group(node.take(), k);
-    let mut curr = head;
-    while let Some(mut n) = curr {
-        curr = std::mem::replace(&mut n.next, rest);
+    while let Some(mut n) = head {
+        head = std::mem::replace(&mut n.next, rest);
         rest = Some(n);
     }
-
     rest
 }
 
@@ -28,17 +23,7 @@ mod tests {
 
     #[test]
     fn it_works() {
-        let list = num_to_list(54321);
-        let swapt = reverse_k_group(list, 2);
-        let res = list_to_num(swapt);
-        assert_eq!(res, 53412);
-    }
-
-    #[test]
-    fn it_works_1() {
-        let list = num_to_list(54321);
-        let swapt = reverse_k_group(list, 3);
-        let res = list_to_num(swapt);
-        assert_eq!(res, 54123);
+        assert_eq!(reverse_k_group(num_to_list(54321), 2), num_to_list(53412));
+        assert_eq!(reverse_k_group(num_to_list(54321), 3), num_to_list(54123));
     }
 }

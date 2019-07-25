@@ -1,24 +1,13 @@
-pub fn reverse(x: i32) -> i32 {
-    let mut x = x;
+pub fn reverse(mut x: i32) -> i32 {
     let mut rev: i32 = 0;
-    loop {
-        let pop = x % 10;
-        match rev.checked_mul(10) {
-            Some(v) => {
-                match v.checked_add(pop) {
-                    Some(x) => rev = x,
-                    None => break,
-                }
-            }
-            None => break,
+    while x != 0 {
+        match rev.checked_mul(10).and_then(|v| v.checked_add(x % 10)) {
+            Some(v) => rev = v,
+            None => return 0,
         }
-
         x /= 10;
-        if x == 0 {
-            return rev;
-        }
     }
-    0
+    rev
 }
 
 #[cfg(test)]
